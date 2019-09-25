@@ -22,6 +22,11 @@ def master(env, start_response):
 			response = '404 Key not found'
 			start_response(response, [('Content-Type','text/plain')])
 			return [bytes(response, 'utf-8')]
+
+	elif env["REQUEST_METHOD"] == "PUT":
+		key = db.get(env["REQUEST_URI"].encode('utf-8'))
+		
+
 	
 	start_response('200 OK', [('Content-Type','text/plain')])
 	return [b"OK"]
