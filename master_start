@@ -1,0 +1,6 @@
+#!/bin/bash
+export DB=${1:-/tmp/db/}
+export NAME=master
+export HOST=${HOST:-localhost:$PORT}
+
+uwsgi --http :${PORT:-9090} --wsgi-file master.py --callable master --master --processes 4
