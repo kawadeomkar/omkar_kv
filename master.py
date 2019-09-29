@@ -2,13 +2,14 @@ import os
 import time
 import requests
 import plyvel
+import socket
 
 print(os.environ['NAME'], os.getpid())
 print(os.environ['DB'])
+print(socket.getfqdn())
 
 # instantiate globals
 NAME = os.environ['NAME']
-DB = os.environ['TYPE']
 HOST = os.environ['HOST']
 
 # start plyvel DB
